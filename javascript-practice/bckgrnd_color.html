@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            width: 200px;
+            height: 50px;
+            border:1px black solid;
+            
+            font-size: 18px;
+            color: #000;
+            font-weight: 800;
+            
+            
+        }
+        .container{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height:200px;
+            margin:12%;
+        }
+    </style>
+</head>
+<body id="body">
+    <div class="container">
+    <button id="button" onclick="changeBackground()">Change the  Color</button>
+    </div>
+</body>
+
+<script>
+ //select the button
+    let button = document.getElementById("button");
+    let body = document.body;
+    //add event listener
+  let colors = ['#4C96D7', '#FF6B6B', '#26A69A', '#FFCA3A', '#8E7DBE'];
+
+
+  let track = 0; // Track array
+
+function changeBackground()
+{
+
+    button.style.background = colors[track];
+    track++;
+    
+    body.style.background = colors[track];
+
+
+    if(track >= colors.length)
+    {
+       track = 0;
+   }
+   if(body.style.background == button.style.background)
+   {
+    body.style.background = 'green';
+   }
+      
+}
+
+
+
+
+</script>
+</html>
