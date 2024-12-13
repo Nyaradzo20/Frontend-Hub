@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pexels Image Fetch Debug</title>
+</head>
+<body>
+  <h1>Pexels Image Fetch Example</h1>
+  <div id="image-container">
+    <p>Loading image...</p>
+  </div>
+
+  <script>
+    // Replace 'YOUR_API_KEY' with your actual Pexels API key
+    const API_KEY = 'sFoXFur1MT0ZNoPfjOaDb93ALOiRRTDcYvYYOhH1j7TNSrk7WR0UDl8A';
+    const URL = 'https://api.pexels.com/v1/search?query=nature'; // Adjust the query as needed
+
+    fetch(URL, {
+      headers: {
+        Authorization: API_KEY
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('API Response:', data); // Log the full API response
+        const firstImage = data.photos[1]?.src.original; // Safely access the first image
+        if (firstImage) {
+          const imageContainer = document.getElementById('image-container');
+          imageContainer.innerHTML = `<img src="${firstImage}" alt="Fetched Image" style="max-width: 100%; height: auto;">`;
+        } else {
+          throw new Error('No images found in the response.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        const imageContainer = document.getElementById('image-container');
+        imageContainer.innerHTML = `<p>Failed to load image. Please try again later.</p>`;
+      });
+  </script>
+</body>
+</html>
