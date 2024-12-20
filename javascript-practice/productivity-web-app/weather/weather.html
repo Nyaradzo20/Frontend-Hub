@@ -30,15 +30,19 @@
 <body class="bg-[var(--weather-rain)] text-[var(--text-light)]">
    
     <h2 class="  text-3xl  ml-96 mt-9 ml-96"> Weather</h2>
+<div>
+    <input type="text" placeholder="SEARCH CITY...."  class="w-1/4   bg-[var(--weather-rain)] border-b-[4px]  border-[var(--weather-sunny)] ml-96 mt-20 italic" />
 
-    <input type="text" placeholder="SEARCH CITY...." class="w-1/4 p-2  bg-[var(--weather-rain)] border-b-[4px]  border-[var(--weather-sunny)] ml-96 mt-20 italic"/>
-
+<button class="bg-red-700  px-4 p-2 rounded" onclick="Search()">SEARCH</button>
+  </div>
     
   
 
 
-  <section class="  w-3/4 border-2  border-slate-300  h-3/6 mx-auto grid grid-rows-3 rounded shadow-lg shadow-slate-400">
-
+  <section  class="  w-3/4 border-2  border-slate-300  h-3/6 mx-auto grid grid-rows-3 rounded shadow-lg shadow-slate-400">
+<p id="show"></p>
   </section>
+  <script src="weather.js"></script>
+
 </body>
 </html>
